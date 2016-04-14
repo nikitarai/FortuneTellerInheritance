@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Astrology.cs" />
     <Compile Include="CrystalBall.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="FortuneTeller.cs" />
+    <Compile Include="Horoscope.cs" />
     <Compile Include="Magic.cs" />
     <Compile Include="PalmReading.cs" />
     <Compile Include="Program.cs" />

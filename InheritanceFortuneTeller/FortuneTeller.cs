@@ -44,6 +44,13 @@ namespace InheritanceFortuneTeller
             Console.WriteLine("Thank you for your patronage.");
         }
 
+        public void Payment(Service service)
+        {
+            Console.WriteLine();
+            Console.WriteLine("The {0} is {1}.",service.Name,service.Price);
+            Console.WriteLine("We have debited your card and included a 25% tip. Have a great day." );
+        
+        }
 
 
         /// <summary>

@@ -10,25 +10,36 @@ namespace InheritanceFortuneTeller
     {
         static void Main(string[] args)
         {
+            //create new employee so I can call greet method
+            Employee receptionist = new Employee();
+           
+            receptionist.Greet();
+            //call menu method to give user service options
             Menu();
+            
         }
 
         static void Menu()
         {
-            Console.WriteLine("The Fortunate Boutique");
+           // display user service options to choose from
             Console.WriteLine("C | Crystal Ball");
             Console.WriteLine("P | Palm Reading");
-            Console.WriteLine("E | Exit");
+            Console.WriteLine("H | Horoscope");
+
+           // Console.WriteLine("E | Exit");
+
+            //assigning user input to a variable name
             string ans = Console.ReadLine().ToUpper();
 
+            //conditions based on user input
             switch(ans)
             {
                 case "C":
-                    FortuneTeller river = new FortuneTeller();
+                    FortuneTeller teller = new FortuneTeller();
                     CrystalBall blueCrystal = new CrystalBall();
 
                     Console.WriteLine();
-                    river.Greet();
+                    //ask for user input
                     Console.WriteLine("What's your favorite color?");
                     string color = Console.ReadLine().ToLower();
                     Console.WriteLine("Has your life changed recently? \"Y\" or \"N\"");
@@ -36,6 +47,7 @@ namespace InheritanceFortuneTeller
                     Console.WriteLine("What inspires you to move forward?");
                     string inspire = Console.ReadLine();
 
+                    //fortunes based on user color input
                     if (color == "red")
                     {
                         color = "You have to build your willpower.";
@@ -75,19 +87,20 @@ namespace InheritanceFortuneTeller
                         change = "Doing something new ";
                     }
 
+                    //concatanating user input and strings into one string, assigned it to string varible name
                     string newPhrase = (change + " is the key to your happiness. Channel your " + inspire + " and move past any obstacles.");
 
                     blueCrystal.CreatePhrases(color);
                     blueCrystal.CreatePhrases(newPhrase);
 
 
-                    river.StartService((Service)blueCrystal);
+                    teller.StartService((Service)blueCrystal);
 
                     blueCrystal.Work();
                     blueCrystal.Show();
                     blueCrystal.StateEffectiveness();
                    
-
+                    //ask user to go again or stop
                     Console.WriteLine("Would you like another service? \"Y\" or \"N\".");
                     string serv = Console.ReadLine().ToUpper();
 
@@ -99,16 +112,18 @@ namespace InheritanceFortuneTeller
                     }
                     else if (serv == "N")
                     {
-                        river.Farewell();
+                        teller.Payment((Service)blueCrystal);
+                        teller.Farewell();
                     }
                     break;
                 case "P":
-                    FortuneTeller magdalene = new FortuneTeller();
+                    teller = new FortuneTeller();
                     PalmReading oracle = new PalmReading();
 
-                    magdalene.Greet();
-                    magdalene.StartService((Service)oracle);
+                    Console.WriteLine();
+                    teller.StartService((Service)oracle);
 
+                    
                     Console.WriteLine("Press enter to begin.");
                     string enter = Console.ReadLine();
 
@@ -129,11 +144,40 @@ namespace InheritanceFortuneTeller
                     }
                     else if (serv == "N")
                     {
-                        magdalene.Farewell();
+                        teller.Payment((Service)oracle);
+                        teller.Farewell();
                     }
 
 
                     break;
+                case "H":
+                    teller = new FortuneTeller();
+                    Horoscope yearly = new Horoscope();
+
+                    yearly.Work();
+                    Console.WriteLine();
+                    yearly.Show();
+                    Console.WriteLine();
+                    yearly.StateEffectiveness();
+                    Console.WriteLine();
+                    Console.WriteLine("Would you like another service? \"Y\" or \"N\".");
+                    serv = Console.ReadLine().ToUpper();
+
+                    if (serv == "Y")
+                    {
+                        Console.Clear();
+                        Console.WriteLine();
+                        Menu();
+                    }
+                    else if (serv == "N")
+                    {
+                        teller.Payment((Service) yearly);
+                        teller.Farewell();
+                        
+                    }
+
+                    break;
+                //original menu gave option to exit
                 case "E":
                     Console.WriteLine("You'll be back soon.");
                     break;

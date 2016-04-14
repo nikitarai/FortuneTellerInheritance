@@ -28,9 +28,10 @@ namespace InheritanceFortuneTeller
         {
             //base.work() calls for parent work to happen before child's work
             base.Work();
-            //now let's call a method that will get a result for the crystal ball
+            //now let's call a method that will get a result for palm reading
             Console.WriteLine("Place your hand over your mousepad. Close your eyes and count to 5.");
            
+            //delays result printing to the console for 7 seconds
             Thread.Sleep(7000);
             this.Result = GetPhrase();
 

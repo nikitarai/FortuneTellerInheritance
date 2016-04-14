@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace InheritanceFortuneTeller
 {
-    class TarotCards: Magic
+    class Employee:FortuneTeller
     {
-        
+
     }
 }
