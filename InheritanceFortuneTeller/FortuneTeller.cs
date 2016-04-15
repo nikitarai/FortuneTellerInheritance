@@ -46,9 +46,15 @@ namespace InheritanceFortuneTeller
 
         public void Payment(Service service)
         {
+            decimal tip = service.Price * .25m;
+            double tipD = Convert.ToDouble(tip);
+            decimal total = service.Price + tip;
+
+            double totalD = Convert.ToDouble(total);
+
             Console.WriteLine();
-            Console.WriteLine("The {0} is {1}.",service.Name,service.Price);
-            Console.WriteLine("We have debited your card and included a 25% tip. Have a great day." );
+           // Console.WriteLine("The {0} is {1}.",service.Name,service.Price);
+            Console.WriteLine("We have debited your card ${0} and included a 25% tip of ${1}. Your total came to ${2}. Have a great day.",service.Price, tipD, totalD );
         
         }
 
